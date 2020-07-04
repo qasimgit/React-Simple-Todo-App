@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
 
-export const App = () => {
+// components //
+import { Header } from "./components/header";
+import { Inptems } from "./components/input-items";
+
+import "./App.css";
+
+const App = () => {
   return (
-    <div>
-      
+    <div className="main-container">
+      <div className="todo_count">
+        <Header />
+        <Inptems />
+      </div>
     </div>
-  )
-}
+  );
+};
+
+export default App;
