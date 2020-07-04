@@ -11,7 +11,11 @@ export const Inptems = () => {
   const listItems = () => {
     if (input !== "") {
       setLists((oldItems) => {
-        return [input, ...oldItems];
+        let obj = {
+          id: Date.now(),
+          title: input,
+        };
+        return [obj, ...oldItems];
       });
     } else {
       alert("Please Enter Something");
@@ -27,6 +31,12 @@ export const Inptems = () => {
         alert("Please Enter something");
       }
     }
+  };
+
+  const deleteItem = (id) => {
+    setLists((oldItems) => {
+      return oldItems.filter((val) => val.id !== id);
+    });
   };
 
   return (
@@ -46,11 +56,11 @@ export const Inptems = () => {
       </div>
       <div>
         <ul>
-          {list.map((value) => {
+          {list.map((value, idx) => {
             return (
               <div className="listdiv">
-                <li>{value}</li>
-                <button className='cross'>
+                <li>{value.title}</li>
+                <button className="cross" onClick={() => deleteItem(value.id)}>
                   <i className="fa fa-times"></i>
                 </button>
               </div>
