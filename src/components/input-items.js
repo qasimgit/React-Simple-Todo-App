@@ -9,36 +9,55 @@ export const Inptems = () => {
   };
 
   const listItems = () => {
-    setLists((oldItems) => {
-      input.toUpperCase();
-      return [input, ...oldItems];
-    });
+    if (input !== "") {
+      setLists((oldItems) => {
+        return [input, ...oldItems];
+      });
+    } else {
+      alert("Please Enter Something");
+    }
   };
 
   const submitOnEnter = (event) => {
     if (event.charCode === 13) {
-      listItems();
+      if (input !== "") {
+        listItems();
+        setInput("");
+      } else {
+        alert("Please Enter something");
+      }
     }
   };
 
   return (
     <div>
-      <label htmlFor="task"> Tasks </label>
-      <input
-        type="text"
-        placeholder="Please Enter the task here"
-        onChange={inputValue}
-        onKeyPress={submitOnEnter}
-      />
-      <button className="btn" onClick={listItems}>
-        <i className="fa fa-plus">Button</i>
-      </button>
-
-      <ul>
-        {list.map((value) => {
-          return <li>{value}</li>;
-        })}
-      </ul>
+      <div className="inputdiv2">
+        <label htmlFor="task"> Tasks </label>
+        <input
+          type="text"
+          placeholder="Please Enter the task here"
+          onChange={inputValue}
+          onKeyPress={submitOnEnter}
+          value={input}
+        />
+        <button className="plus" onClick={listItems}>
+          <i className="fa fa-plus"></i>
+        </button>
+      </div>
+      <div>
+        <ul>
+          {list.map((value) => {
+            return (
+              <div className="listdiv">
+                <li>{value}</li>
+                <button className='cross'>
+                  <i className="fa fa-times"></i>
+                </button>
+              </div>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 };

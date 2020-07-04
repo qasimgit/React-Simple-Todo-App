@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Courgette', cursive;
+  font-family: "Courgette", cursive;
 }
 
 body {
@@ -29,14 +29,63 @@ body {
   justify-content: center;
   text-align: center;
 }
+
+h1 {
+  font-size: 50px;
+}
 .todo_count {
   margin-top: 80px;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-label{
+label {
   font-size: 40px;
+}
+
+input {
+  width: 400px;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  outline: none;
+  font-size: 20px;
+}
+
+.inputdiv2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listdiv {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.listdiv li {
+  font-size: 20px;
+}
+
+.plus {
+  width: 30px;
+  font-size: 50px;
+  background: none;
+  border: none;
+  padding: 0px 0px 20px 0px;
+  cursor: pointer;
+}
+
+.cross {
+  font-size: 20px;
+  background: none;
+  border: none;
+  padding: 0px 0px 20px 0px;
+  cursor: pointer;
+  padding-top: 20px;
 }
